@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
 
-        input {
-            text-align: center;
+input {
+    text-align: center;
         }
 
     </style>
@@ -50,21 +50,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 </nav>
 
 <center>
-
     <br><br>
 
-    <form method="POST" action="redirect_script.php">
+    <h3>
+        Your Answer:
 
-        <input type="text" name="value1" placeholder="Enter your first Digit"><br><br>
-        <input type="text" name="value2" placeholder="Enter your second Digit"><br><br>
-        <select name="selector">
-            <option value=""> Select here </option>
-            <option value="addition"> Add </option>
-            <option value="Subtract"> Subtract </option>
-        </select>
-        <button type="submit"> Calculate </button>
+        <?php
+        include ("Script.php");
 
-    </form>
+        /**
+         * Created by PhpStorm.
+         * User: RTG
+         * Date: 29/7/2017
+         * Time: 10:08 PM
+         */
+
+        $selector = $_POST['selector'];
+        $value1 = $_POST['value1'];
+        $value2 = $_POST['value2'];
+
+        $cal = new Script($value1, $value2, $selector);
+
+        $cal->calculate();
+
+        ?>
+
+    </h3>
 
 </center>
 
